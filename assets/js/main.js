@@ -75,21 +75,17 @@ document.addEventListener('visibilitychange', () => {
 // Keep the download hub entrance brief and preserve instant access.
 document.querySelectorAll(".hub-intro, .hub-store, .hub-access").forEach((element, index) => reveal(element, index * 70));
 
-// A self-contained illustrative tour. Stop the timer offscreen or when paused.
+// A self-contained illustrative tour. Stop offscreen or when motion is reduced.
 const demoScreens = [...document.querySelectorAll('[data-screen]')];
 const demoTabs = [...document.querySelectorAll('[data-demo-tab]')];
-const demoToggle = document.querySelector('.demo-toggle');
-if (demoScreens.length && demoToggle) {
+if (demoScreens.length && visual) {
   let currentScreen = 0;
   let demoTimer;
   let demoVisible = !('IntersectionObserver' in window);
-  let demoPaused = false;
 
   function syncDemo() {
     clearTimeout(demoTimer);
-    demoToggle.hidden = reducedMotion.matches;
-    demoToggle.textContent = demoPaused ? 'Play app preview' : 'Pause app preview';
-    const playing = !demoPaused && demoVisible && !document.hidden && !reducedMotion.matches;
+    const playing = demoVisible && !document.hidden && !reducedMotion.matches;
     visual.classList.toggle('is-demo-playing', playing);
     if (!playing) return;
     demoTimer = setTimeout(() => {
@@ -104,10 +100,6 @@ if (demoScreens.length && demoToggle) {
     }, 3400);
   }
 
-  demoToggle.addEventListener('click', () => {
-    demoPaused = !demoPaused;
-    syncDemo();
-  });
   reducedMotion.addEventListener('change', syncDemo);
   document.addEventListener('visibilitychange', syncDemo);
   if ('IntersectionObserver' in window) {
