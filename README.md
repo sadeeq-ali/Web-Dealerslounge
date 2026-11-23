@@ -26,6 +26,17 @@ Store listing URLs were not present in the app source. The page labels both stor
 - `/privacy/`: privacy policy.
 - `/explore.html`: redirects older links to the homepage.
 
-All links are relative, supporting both a domain root and the current GitHub Pages base path `/Web-Dealerslounge/`. No backend router is needed. The React Native website and privacy URLs remain valid.
+All links are relative and served from `https://dealerslounge.pk/`. The public invitation/download URL is `https://dealerslounge.pk/join`. No backend router is needed.
 
 Store buttons and QR areas stay explicitly unavailable until real store URLs are supplied. The download layout allows scrolling on short screens or with enlarged text for accessibility.
+
+## Store-readiness additions (20 November 2026)
+
+- `/terms/`: versioned terms and content rules; publish before enabling the app acceptance gate.
+- External account/data deletion remains `/privacy/#delete-account`; support inbox monitoring was confirmed by the owner. A real deletion request and live URL still need verification.
+- The legal operator is currently the existing brand “DealersLounge.” The owner has not confirmed a registered operator identity; resolve this before store submission.
+- These source changes are not deployment evidence. No hosting settings or production deployment were changed.
+
+## Publishing the terms page
+
+Upload `terms/index.html` to `terms/index.html` under the same public web root as `privacy/index.html`. Preserve the shared `assets/` directory. The home, join and privacy pages include Terms of Use links; publish those updated pages together. The site is static and needs no build. Verify that `https://dealerslounge.pk/terms/` returns HTTP 200 and displays the terms, not the homepage or a hosting error. Keep the displayed terms version in sync with app/backend acceptance; this page uses version `2026-11-20`.
