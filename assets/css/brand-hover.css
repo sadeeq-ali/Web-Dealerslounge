@@ -1,0 +1,43 @@
+/* Reserve the wordmark space so hover never moves the navigation. */
+.brand-reveal {
+  --mark-size: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex: 0 1 218px;
+  min-width: 0;
+  height: 56px;
+  color: var(--blue);
+  text-decoration: none;
+}
+.brand-symbol-mask {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  flex: 0 0 calc(var(--mark-size) + 10px);
+  height: 100%;
+  background: #fff;
+}
+.brand-symbol { width: var(--mark-size); height: var(--mark-size); overflow: visible; }
+.brand-name-clip { overflow: hidden; min-width: 0; padding-block: 8px; }
+.brand-name {
+  color: #15191e;
+  display: block;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.8px;
+  opacity: 0;
+  transform: translateX(-105%);
+  transition: transform 460ms cubic-bezier(.22, 1, .36, 1), opacity 220ms ease;
+}
+.brand-reveal:is(:hover, :focus-visible) .brand-name { opacity: 1; transform: translateX(0); }
+.brand-reveal:focus-visible { outline: 2px solid var(--blue); outline-offset: 5px; border-radius: 4px; }
+@media (max-width: 600px) {
+  .brand-reveal { --mark-size: 32px; flex-basis: 180px; margin-right: 8px; }
+  .brand-name { font-size: 17px; letter-spacing: -.7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-name { transition: none; transform: none; }
+}
