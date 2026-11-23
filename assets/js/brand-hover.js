@@ -8,8 +8,8 @@
   brand.addEventListener('pointerenter', event => {
     if (event.pointerType === 'touch' || reducedMotion.matches || animation) return;
     animation = symbol.animate(
-      [{ transform: 'rotate(0deg)' }, { transform: 'rotate(360deg)' }],
-      { duration: 650, easing: 'ease-in-out', iterations: 1 }
+      [{ transform: 'rotate(0deg)' }, { transform: 'rotate(180deg)' }],
+      { duration: 500, easing: 'ease-in-out', iterations: 1 }
     );
     animation.onfinish = () => { animation = null; };
     animation.oncancel = () => { animation = null; };

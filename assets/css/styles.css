@@ -2211,6 +2211,11 @@ a .icon,
   font-weight: 600
 }
 
+/* Distinct dealership colors keep alert senders easy to recognize. */
+.dealer-avatar.dealer-avatar-x7 { background: #1d4ed8; }
+.dealer-avatar.dealer-avatar-capital { background: #047857; }
+.dealer-avatar.dealer-avatar-prime { background: #b45309; }
+
 .system-avatar {
   background: white;
   color: var(--blue)

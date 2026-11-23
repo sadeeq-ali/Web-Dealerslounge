@@ -1,0 +1,80 @@
+/* Small-screen layout overrides. Desktop styles remain unchanged. */
+@media (max-width: 760px) {
+  .container { width: calc(100% - 32px); }
+  .nav { gap: 12px; }
+  .nav > .button { flex-shrink: 0; }
+  .hero, .features, .workflow-grid, .faq { min-width: 0; }
+  .hero > *, .features > *, .workflow-grid > *, .faq > * { min-width: 0; }
+  h1 { font-size: clamp(2rem, 8.5vw, 3.0625rem); letter-spacing: -.04em; }
+  .eyebrow { font-size: .6875rem; }
+  .lead, .section-heading > p { font-size: 1rem; }
+  .hero-actions { flex-wrap: wrap; gap: 12px; }
+  .hero-actions .button, .hero-actions .text-link { font-size: .875rem; min-height: 44px; }
+  .hero-note { font-size: .75rem; }
+  .value-strip p { flex-wrap: wrap; justify-content: center; font-size: .75rem; }
+  .section { padding-block: 48px; }
+  .feature > p, .faq > div > p:not(.eyebrow), details p, .download p:not(.eyebrow) { font-size: .9375rem; }
+  summary { font-size: 1rem; min-height: 44px; align-items: center; }
+  summary .icon { flex-shrink: 0; }
+  .download .download-note { font-size: .75rem; }
+  .feature { padding: 24px; }
+  .download { padding: 28px 20px; }
+  .download .button { max-width: 100%; white-space: normal; }
+  .footer-top, .footer-bottom, .footer-bottom > div { flex-wrap: wrap; gap: 12px 20px; }
+  .footer-bottom, .footer-top > a:last-child { font-size: .75rem; }
+  .footer-top a, .footer-bottom a { overflow-wrap: anywhere; }
+  .legal-main { padding-block: 36px; }
+  .legal-main h1 { font-size: clamp(2rem, 7vw, 2.5rem); }
+  .legal-main p, .legal-main li { font-size: 1rem; }
+  .policy-contents { padding: 20px; }
+  .policy-contents ol { columns: 1; }
+  .hub-footer { flex-wrap: wrap; gap: 8px 20px; padding-block: 20px; font-size: .75rem; }
+  .hub-footer > a:first-of-type { margin-left: 0; }
+}
+
+@media (max-width: 520px) {
+  .hub-header { gap: 12px; }
+  .hub-explore { font-size: .75rem; }
+  .hub-main { width: calc(100% - 32px); }
+  .hub-intro > p:last-child { font-size: 1rem; max-width: none; }
+  .hub-downloads { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .hub-store { padding: 20px; }
+  .hub-store-heading { gap: 12px; }
+  .hub-store-heading h2 { font-size: 1.125rem; }
+  .availability-chip { font-size: .75rem; }
+  .hub-qr { font-size: .75rem; margin-block: 20px; }
+  .qr-frame { width: 100px; height: 100px; }
+  .hub-store-button { font-size: .875rem; min-height: 48px; padding: 12px; }
+  .hub-access { font-size: .875rem; }
+  .hub-footer > span { width: 100%; }
+  .visual-heading { left: 16px; right: 16px; letter-spacing: .5px; }
+  .floating-card { right: 8px; }
+}
+
+@media (max-width: 360px) {
+  .nav, .hub-header { flex-wrap: wrap; height: auto; min-height: 82px; padding-block: 12px; }
+  .hero-visual { height: 530px; }
+  .phone { --phone-angle: 0deg; flex-shrink: 0; }
+  .feature { padding: 20px; }
+}
+
+/* Compact download and footer composition on mobile. */
+@media (max-width: 760px) {
+  .download { padding: 28px 22px; border-radius: 20px; }
+  .download > div:first-child { width: 100%; min-width: 0; }
+  .download .eyebrow { margin: 0 0 18px; font-size: .625rem; letter-spacing: .12em; }
+  .download h2 { font-size: clamp(1.5rem, 6.5vw, 1.875rem); line-height: 1.25; letter-spacing: -.035em; margin: 0 0 16px; text-wrap: balance; }
+  .download p:not(.eyebrow) { line-height: 1.65; }
+  .download .join-cta { display: flex; justify-content: center; width: 100%; margin-top: 24px; min-height: 48px; }
+  .download p.download-note { font-size: .75rem; margin: 16px 0 0; }
+  footer.container { padding-top: 36px; padding-bottom: 24px; }
+  .footer-top { align-items: center; gap: 12px; padding-bottom: 24px; }
+  .footer-top > a:last-child { padding-top: 0; }
+  .footer-top p { font-size: .75rem; line-height: 1.6; }
+  .footer-bottom { flex-direction: column; align-items: center; gap: 16px; padding-top: 16px; text-align: center; }
+  .footer-bottom > div { justify-content: center; gap: 4px 18px; width: 100%; }
+  .footer-bottom > span { order: 2; width: 100%; text-align: center; }
+  .footer-bottom a[href="#main"] { display: none; }
+  .hub-footer { justify-content: center; text-align: center; }
+  .hub-footer > span { order: 2; width: 100%; text-align: center; }
+}
