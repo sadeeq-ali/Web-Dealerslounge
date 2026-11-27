@@ -8,9 +8,13 @@
   h1 { font-size: clamp(2rem, 8.5vw, 3.0625rem); letter-spacing: -.04em; }
   .eyebrow { font-size: .6875rem; }
   .lead, .section-heading > p { font-size: 1rem; }
-  .hero-actions { flex-wrap: wrap; gap: 12px; }
-  .hero-actions .button, .hero-actions .text-link { font-size: .875rem; min-height: 44px; }
+  /* The header already provides the primary mobile download action. */
+  .hero-actions { display: none; }
   .hero-note { font-size: .75rem; }
+  /* Keep the full tilted shell visible with a desktop-style overlapping card. */
+  .hero-visual { height: auto; padding: 24px 0 0; }
+  .phone { --phone-angle: -6deg; --phone-scale: .9; scale: var(--phone-scale); flex-shrink: 0; margin-top: 0; }
+  .hero-visual .floating-card { bottom: 62px; }
   .value-strip p { flex-wrap: wrap; justify-content: center; font-size: .75rem; }
   .section { padding-block: 48px; }
   .feature > p, .faq > div > p:not(.eyebrow), details p, .download p:not(.eyebrow) { font-size: .9375rem; }
@@ -53,8 +57,8 @@
 
 @media (max-width: 360px) {
   .nav, .hub-header { flex-wrap: wrap; height: auto; min-height: 82px; padding-block: 12px; }
-  .hero-visual { height: 530px; }
-  .phone { --phone-angle: 0deg; flex-shrink: 0; }
+  .hero-visual { padding-top: 8px; }
+  .phone { --phone-scale: .82; margin-bottom: -20px; }
   .feature { padding: 20px; }
 }
 
@@ -62,13 +66,15 @@
 @media (max-width: 760px) {
   .download { padding: 28px 22px; border-radius: 20px; }
   .download > div:first-child { width: 100%; min-width: 0; }
-  .download .eyebrow { margin: 0 0 18px; font-size: .625rem; letter-spacing: .12em; }
-  .download h2 { font-size: clamp(1.5rem, 6.5vw, 1.875rem); line-height: 1.25; letter-spacing: -.035em; margin: 0 0 16px; text-wrap: balance; }
-  .download p:not(.eyebrow) { line-height: 1.65; }
-  .download .join-cta { display: flex; justify-content: center; width: 100%; margin-top: 24px; min-height: 48px; }
-  .download p.download-note { font-size: .75rem; margin: 16px 0 0; }
+  .download .eyebrow { margin: 0 0 20px; font-size: .625rem; letter-spacing: .12em; }
+  .download h2 { font-size: clamp(1.125rem, calc(7vw - 3px), 1.5rem); line-height: 1.3; letter-spacing: -.035em; margin: 0 0 20px; text-wrap: initial; }
+  .download p:not(.eyebrow) { font-size: clamp(.875rem, 4vw, 1rem); line-height: 1.6; margin: 0; }
+  .download .join-cta { display: flex; justify-content: center; width: 100%; margin-top: 26px; min-height: 56px; padding: 16px; border-radius: 9px; font-size: .875rem; gap: 14px; }
+  .download .join-cta .icon { width: 18px; height: 18px; }
+  .download p.download-note { font-size: clamp(.625rem, 3.1vw, .75rem); margin: 16px 0 0; }
   footer.container { padding-top: 36px; padding-bottom: 24px; }
   .footer-top { align-items: center; gap: 12px; padding-bottom: 24px; }
+  .footer-top .brand img { width: 136px; }
   .footer-top > a:last-child { padding-top: 0; }
   .footer-top p { font-size: .75rem; line-height: 1.6; }
   .footer-bottom { flex-direction: column; align-items: center; gap: 16px; padding-top: 16px; text-align: center; }
