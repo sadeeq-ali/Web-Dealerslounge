@@ -2409,7 +2409,8 @@ a .icon,
 
 .app-logo-avatar img {
   width: 32px;
-  height: 32px
+  height: 32px;
+  border-radius: 7px;
 }
 
 .system-avatar img {
